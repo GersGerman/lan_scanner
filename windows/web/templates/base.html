@@ -1,0 +1,97 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Title{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block styles %}
+    {% endblock %}
+</head>
+<body>
+    <header class="mini-mobile-header menu-hidden" id="mini-header">
+            <h2 >lan_scanner</h2>
+            <div class="burger-mobile" id="burger-mobile" onclick="mobileBurgeranimation()">
+                <hr class="burger-mobile-line top"></hr>
+                <hr class="burger-mobile-line middle"></hr>
+                <hr class="burger-mobile-line bottom"></hr>
+        </div>
+    </header>
+    <header class="desktop-header">
+        <h1>
+            lan_scanner
+        </h1>
+        <div class="header-urls">
+                <a href="{% url 'index-page' %}">Главная</a>
+                <a>Список IP</a>
+                <a>Telegram</a>
+        </div>
+    </header>
+    <header class="mobile-header" id="mobile-header">
+        <h2 style="margin: 10px 0px;">lan_scanner</h2>
+        <div class="burger-menu hidden" id="header-menu">
+            <a onclick="burgerAnimation()" href="{% url 'index-page' %}"><h2>Главная</h2></a>
+            <a onclick="burgerAnimation()" href=""><h2>Список IP</h2></a>
+            <a onclick="burgerAnimation()" href=""><h2>Telegram</h2></a>
+        </div>
+        <div class="burger" id="burger" onclick="burgerAnimation()">
+            <hr id="left">
+            <hr id="for_hide">
+            <hr id="right">
+        </div>
+
+
+    </header>
+    <main>
+        <aside class="left mobile-hidden" id="mobile-header-menu">
+            <a href="{% url 'index-page' %}"><h2>Главная</h2></a>
+            <a><h2>Список IP</h2></a>
+            <a><h2>Telegram</h2></a>
+        </aside>
+        <div class="wrapper" id="wrapper">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <aside class="right"></aside>
+    </main>
+    <footer></footer>
+    <script>
+        function burgerAnimation(){
+            let mobileHeaderMenu = document.getElementById("header-menu"); // type: div
+            let burger = document.getElementById("burger"); // type: div
+            burger.classList.toggle("burger-clicked");
+            burger.classList.toggle("burger");
+
+            mobileHeaderMenu.classList.toggle("hidden");
+        };
+        
+        function mobileBurgeranimation(){
+            let mobileHeaderMenu = document.getElementById("mobile-header-menu"); // type: div
+            let mobileBurger = document.getElementById("burger-mobile"); // type: div
+            let mobileHeader = document.getElementById("mini-header"); // type: div
+            let wrapper = document.getElementById("wrapper"); // type: div
+
+            
+            mobileBurger.classList.toggle("burger-mobile-clicked");
+            mobileBurger.classList.toggle("burger-mobile");
+
+            mobileHeader.classList.toggle("header-opened")
+
+            mobileHeaderMenu.classList.toggle("mobile-hidden");
+            wrapper.classList.toggle("wrapper-menu-opened")
+        }
+
+        let currentY = pageYOffset;
+        window.addEventListener("scroll", ()=>{
+                if (pageYOffset > currentY){
+                    document.getElementById("mobile-header").style.top = '2px';
+                    currentY = pageYOffset;
+                } else {
+                    document.getElementById("mobile-header").style.top = '10px';
+                    currentY = pageYOffset;
+                }
+        });
+    </script>
+</body>
+</html>
