@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\windows",
+    "\\windows\\web",
+    "\\windows\\web\\mainapp",
+    "\\windows\\web\\templates"
+  ],
+  "SelectedNode": "\\windows\\web\\mainapp\\urls.py",
+  "PreviewInSolutionExplorer": false
+}
