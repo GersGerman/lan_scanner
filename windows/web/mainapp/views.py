@@ -5,7 +5,7 @@ def index(request):
 
 
 def telegrambot(request):
-    pass
+    return render(request, 'telegram.html')
 
 def listip(request):
-    pass
+    return render(request, 'ip.html')

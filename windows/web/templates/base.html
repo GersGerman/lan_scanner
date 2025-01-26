@@ -46,8 +46,8 @@
     <main>
         <aside class="left mobile-hidden" id="mobile-header-menu">
             <a href="{% url 'index-page' %}"><h2>Главная</h2></a>
-            <a><h2>Список IP</h2></a>
-            <a><h2>Telegram</h2></a>
+            <a href="{% url 'listip' %}"> <h2>Список IP</h2></a>
+            <a href="{% url 'telegrambot' %}"><h2>Telegram</h2></a>
         </aside>
         <div class="wrapper" id="wrapper">
             {% block content %}
@@ -93,5 +93,7 @@
                 }
         });
     </script>
+    {% block scripts %}
+    {% endblock %}
 </body>
 </html>

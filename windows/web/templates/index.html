@@ -1,116 +1,63 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Главная страница{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static './css/index.css' %}">
+{% endblock %}
+
 
 {% block content %}
+    <div class="constant-ip">
+        <h2>Постоянные IP адреса:</h2>
+        <ul>
+            <li>
+                <h4>192.168.1.1</h4>
+                <h4>galaxy a 52</h4>
+            </li>
+            <li>
+                <h4>192.168.1.2</h4>
+                <h4>Неизвестно</h4>
+            </li>
+            <li>
+                <h4>192.168.1.3</h4>
+                <h4>какой-то телефон</h4>
+            </li>
+        </ul>
+    </div>
 
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
-<div class="container">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe voluptas aliquid enim optio dolore tempora expedita omnis, in hic iste error obcaecati sed nulla. Repudiandae illum amet mollitia ratione voluptates.</div>
-<div class="container">Architecto veritatis ducimus iste quod necessitatibus iure eius rerum, ea temporibus doloribus consectetur fuga ipsam reprehenderit, libero sequi possimus autem sed nemo exercitationem sapiente? Reprehenderit eius similique cum quo et.</div>
-<div class="container">Reiciendis, odio assumenda ipsum facilis provident nesciunt reprehenderit eum quam quos iste deleniti culpa porro accusantium velit at dicta illum consequuntur quaerat unde. Dignissimos corrupti deleniti laboriosam ea nulla laborum.</div>
-<div class="container">Veritatis, dolor. Ea, neque. Soluta quam labore fugit distinctio saepe fugiat eius laboriosam, vero error natus veniam possimus magni, voluptates facilis! Placeat, facere! Quidem, recusandae officiis. Quaerat ipsam iusto voluptate.</div>
+    <div class="help-boxes">
+        <div class="help-box telegram"  style='background-image: url("{% static '/img/telegramImage.png' %}")' >
+            <div class="telegram-help">
+                <h4>Телеграм бот</h4>
+    
+                <div class="work-or-not">
+                    <i class="state">Не работает</i>
+                    <img src="" alt="" class="state-image">
+                    <a href="">Запустить</a>
+                </div>
+            </div>
+        </div>
+        <div class="help-box faq"  style='background-image: url("{% static '/img/contact.jpeg' %}")'> 
+                <a href="https://t.me/g3rs_0ne_bot" target="_blank" id="contact-btn">
+                    <h4>
+                        Написать разработчику
+                    </h4>
+                </a>
+        </div>
+    </div>
+    <div class="">
+        <h2>О проекте:</h2>
+        <div class="container project-info">
+            <div class="info">
+                Сам проект подразумевает собой простой сканнер локальной сети (LAN не WAN) на обнаружение подключенных к ней устройств<br>
+                Сканирование происходит постоянно, но время сканирования зависит от количества подключенных устройств - это объясняется устройством общения устройств в сети, а именно:
+                устройство, подключенное к сети отправляет arp пакет на каждое устройство и получает ответ. Таким образом ваше устройство узнает кто является роутером, коммутатором а кто телефоном\планшетом\компьютером. <br>
+                при сканировании, программа видит какие устройства подключены к вашей сети, и отображает их на <a href="{% url 'index-page' %}">Главной странице</a> или подробно на странице со <a href="{% url 'listip' %}">Списком IP</a>. Если вы хотите - вы можете подключить бота в Telegram, для этого <a href="{% url 'telegrambot'%}">перейдите в соответствующее меню</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
 
+{% block scripts %}
 {% endblock %}

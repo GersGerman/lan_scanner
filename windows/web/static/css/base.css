@@ -1,5 +1,9 @@
 *{
-    font-family: 'Courier New', Courier, monospace;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body{
+    background-color: whitesmoke;
 }
 
 .desktop-header{
@@ -8,7 +12,7 @@
 
     position: fixed;
 
-    width: 98vw;
+    width: 99vw;
     top: 10px;
     height: 10vh;
 
@@ -19,11 +23,10 @@
 
     background-image: linear-gradient(45deg, blue, darkviolet, purple, blue);
 
-    box-shadow: 0px 80px 1000px black;
-
     border-radius: 10px;
 
     color: white;
+    z-index: 0;
 }
 
 .mobile-header, .mini-mobile-header{
@@ -68,24 +71,32 @@ aside.left{
 }
 
 .wrapper{
-    background-color: white;
-    margin: 12vh 10px 0px 10px;
+    background-color: rgb(194, 160, 206);
+    margin: 13vh 10px 0px 10px;
 
     padding: 20px;
-    border-radius: 30px;
+    border-radius: 10px;
+    
+    box-shadow: 0px -100px 1000px darkgray;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
 }
 
 
 @media screen  and (min-width:700px) and (max-width:1400px){
     .mobile-header{
         position: fixed;
-        width: 93%;
+        width: 95%;
         height: 8vh;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
 
-        margin: 0vh auto 2vh auto;
+        margin: 0vh 10px 2vh 0px;
 
         background-image: linear-gradient(45deg, blue, darkviolet, purple, blue);
         color: white;
@@ -99,7 +110,7 @@ aside.left{
     }
 
     .wrapper{
-        margin: 10vh 10px 0px 10px;
+        margin: 12vh 10px 0px 10px;
     }
 
     .burger hr, .burger-clicked hr{
@@ -237,8 +248,6 @@ aside.left{
 
         border-radius: 10px 50px 10px 10px;
 
-        background-color: whitesmoke;
-
         box-shadow: 0px 0px 100px gray;
 
         transition: .1s;
@@ -251,7 +260,8 @@ aside.left{
         line-height: 1px;
         transition: .2s;
 
-        z-index: 10;
+        z-index: 2;
+
 
     }
 
@@ -270,6 +280,11 @@ aside.left{
     }
 
     .burger-mobile-clicked{
+        transform: rotate(180deg);
+        position: absolute;
+
+        right: 120px;
+        
         .burger-mobile-line.top{
             width: 15px;
             margin-left: 8px;
@@ -283,10 +298,7 @@ aside.left{
             transform: rotate(-30deg);
         };
 
-        transform: rotate(180deg);
-        position: absolute;
 
-        right: 50px;
 
     }
 
