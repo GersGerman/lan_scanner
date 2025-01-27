@@ -11,7 +11,7 @@ def main():
     # subprocess.Popen(os.getcwd()+"\windows\scripts\server.exe",).wait()
 
     # os.system(f"python {os.getcwd()}\windows\web\manage.py runserver")
-    subprocess.Popen(f"python {os.getcwd()}\windows\web\manage.py runserver").wait()
+    subprocess.Ppen(f"python {os.getcwd()}\web\manage.py runserver 0.0.0.0:8089").wait()
 
 
 if __name__ == "__main__":

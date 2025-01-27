@@ -251,6 +251,9 @@ aside.left{
         box-shadow: 0px 0px 100px gray;
 
         transition: .1s;
+
+
+        backround-image: radial-gradient();
     }
 
     .burger-mobile{
@@ -283,7 +286,7 @@ aside.left{
         transform: rotate(180deg);
         position: absolute;
 
-        right: 120px;
+        right: 65px;
         
         .burger-mobile-line.top{
             width: 15px;
@@ -329,6 +332,11 @@ aside.left{
         transition: .2s, border-radius .3s;
 
         border-radius: 0  30px;
+
+        body{
+            position: fixed;
+            overflow-y: scroll;
+        }
 
         a{
             text-decoration: none;
