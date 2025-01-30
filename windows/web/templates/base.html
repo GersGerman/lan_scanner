@@ -24,16 +24,16 @@
         </h1>
         <div class="header-urls">
                 <a href="{% url 'index-page' %}">Главная</a>
-                <a>Список IP</a>
-                <a>Telegram</a>
+                <a href="{% url 'listip' %}">Список IP</a>
+                <a href="{% url 'telegrambot' %}">Telegram</a>
         </div>
     </header>
     <header class="mobile-header" id="mobile-header">
         <h2 style="margin: 10px 0px;">lan_scanner</h2>
         <div class="burger-menu hidden" id="header-menu">
             <a onclick="burgerAnimation()" href="{% url 'index-page' %}"><h2>Главная</h2></a>
-            <a onclick="burgerAnimation()" href=""><h2>Список IP</h2></a>
-            <a onclick="burgerAnimation()" href=""><h2>Telegram</h2></a>
+            <a onclick="burgerAnimation()" href="{% url 'listip' %}"><h2>Список IP</h2></a>
+            <a onclick="burgerAnimation()" href="{% url 'telegrambot' %}"><h2>Telegram</h2></a>
         </div>
         <div class="burger" id="burger" onclick="burgerAnimation()">
             <hr id="left">

@@ -3,7 +3,7 @@
 }
 
 body{
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .desktop-header{
@@ -71,7 +71,7 @@ aside.left{
 }
 
 .wrapper{
-    background-color: rgb(194, 160, 206);
+    background-color: light;
     margin: 13vh 10px 0px 10px;
 
     padding: 20px;
@@ -90,7 +90,7 @@ aside.left{
 @media screen  and (min-width:700px) and (max-width:1400px){
     .mobile-header{
         position: fixed;
-        width: 95%;
+        width: 95vw;
         height: 8vh;
         display: flex;
         flex-direction: row;
@@ -171,7 +171,7 @@ aside.left{
         background-size: 200%;
 
         align-self: center;
-        padding: 10px;
+        
 
         border-radius: 10px;
 
@@ -251,9 +251,6 @@ aside.left{
         box-shadow: 0px 0px 100px gray;
 
         transition: .1s;
-
-
-        backround-image: radial-gradient();
     }
 
     .burger-mobile{
@@ -356,4 +353,12 @@ aside.left{
         border-radius: 0px;
     }
 
+}
+
+
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: rgb(41, 41, 41);
+        color: white;
+    }
 }

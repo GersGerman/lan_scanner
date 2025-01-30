@@ -7,11 +7,11 @@ def main():
     print("Запуск серверов: Сканер сети и web сервер....")
 
     # os.system(f"{os.getcwd()}\windows\scripts\server.exe")
-    print(Fore.MAGENTA+os.getcwd()+"\scripts\server.exe")
+    print(Fore.MAGENTA+os.getcwd()+"/\scripts/\server.exe")
     # subprocess.Popen(os.getcwd()+"\windows\scripts\server.exe",).wait()
 
     # os.system(f"python {os.getcwd()}\windows\web\manage.py runserver")
-    subprocess.Ppen(f"python {os.getcwd()}\web\manage.py runserver 0.0.0.0:8089").wait()
+    subprocess.Popen(f"python {os.getcwd()}/\web/\manage.py runserver 0.0.0.0:8089").wait()
 
 
 if __name__ == "__main__":
