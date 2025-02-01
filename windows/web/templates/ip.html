@@ -2,11 +2,69 @@
 {% load static %}
 
 {% block title %}
-    ip
+    Список IP
 {% endblock %}
 
 {% block styles %}
+    <link rel="stylesheet" href="{% static './css/ip.css' %}">k
 {% endblock %}
 
 {% block content %}
+<div class="ip-list">
+    <h2 class="page-header">Постоянные устройства:</h2>
+    <ul>
+
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.1</div>  <div class="name-for-ip"><i>Имя 1</i></div><div class="date-added"><b>10.10.2010</b></div> 
+            </div>
+        </li>
+        
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.2</div>  <div class="name-for-ip"><i>Имя 2</i></div><div class="date-added"><b>10.10.2010</b></div>
+            </div>
+        </li>
+        
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.3</div>  <div class="name-for-ip"><i>Имя 3</i></div><div class="date-added"><b>10.10.2010</b></div>
+            </div>
+        </li>
+        
+    </ul>
+</div>
+
+<div class="ip-list">
+    <h2 class="page-header">Новые устройства: </h2>
+
+    <ul>
+
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.4</div> 
+                <div class="name-for-ip"><i>Имя 4</i></div>
+                <div class="date-added"><b>10.10.2010</b></div>
+
+                <div class="add-to-trusted">
+                    <div class="plus-hr first-hr"></div>
+                    <div class="plus-hr second-hr"></div>
+                </div>
+        </li>
+        
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.5</div>
+                <div class="name-for-ip"><i>Имя 5</i></div><div class="date-added"><b>10.10.2010</b></div> <div class="add-to-trusted"><div class="plus-hr first-hr"></div><div class="plus-hr second-hr"></div></div>
+            </div>
+        </li>
+        
+        <li>
+            <div class="ip">
+                <div class="ip-addr">127.0.0.6</div>  <div class="name-for-ip"><i>Имя 6</i></div><div class="date-added"><b>10.10.2010</b></div> <div class="add-to-trusted"><div class="plus-hr first-hr"></div><div class="plus-hr second-hr"></div></div>
+            </div>
+        </li>
+        
+    </ul>
+</div>
 {% endblock %}

@@ -1,6 +1,6 @@
 
 
-@media screen and (min-width: 1400px) and (prefers-color-scheme: dark){
+@media screen and (min-width: 1400px){
     .tgbotex-container{
         display: flex;
         flex-direction: column;
@@ -70,7 +70,7 @@
     
         border-radius: 20px;
     
-        font-size: 40px;
+        font-size: 18px;
     
         transition: .2s;
     }
@@ -88,3 +88,54 @@
     }
 }
 
+@media screen and (min-width: 700px) and (max-width: 1400px){
+    .tgbotex-container{
+        display: flex;
+        flex-direction: column;
+
+        padding: 20px;
+    }
+
+    .desc-text{
+        line-height: 20px;
+    }
+
+    .token-form{
+        display: flex;
+        flex-direction: column;
+
+        
+    }
+
+    #for-token{
+        text-align: center;
+        font-size: 18px;
+
+        border-radius: 25px;
+
+        padding: 10px;
+        margin: 0px 0px 10px 0px;
+
+    }
+
+    #sent-token{
+        padding: 10px;
+        font-size: 18px;
+
+        font-weight: 900;
+        border-radius: 25px;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    
+    #for-token{
+        background-color: rgb(75, 75, 75);
+        color: aliceblue;
+    }
+
+    #sent-token{
+        background-color: rgb(80, 80, 80);
+        color: aliceblue;
+    }
+}
