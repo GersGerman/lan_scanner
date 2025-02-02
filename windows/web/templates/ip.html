@@ -12,7 +12,7 @@
 {% block content %}
 <div class="ip-list">
     <h2 class="page-header">Постоянные устройства:</h2>
-    <ul>
+    <ul id="trusted-ip">
 
         <li>
             <div class="ip">
@@ -38,7 +38,7 @@
 <div class="ip-list">
     <h2 class="page-header">Новые устройства: </h2>
 
-    <ul>
+    <ul id="new-ip">
 
         <li>
             <div class="ip">
@@ -67,4 +67,16 @@
         
     </ul>
 </div>
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        let trustedIp = document.querySelectorAll(".new-ip li"); // type: div
+        let newIp = document.getElementById("new-ip"); // type: div
+
+        for (let i in trustedIp){
+            console.log(i)
+        }
+
+    </script>
 {% endblock %}
