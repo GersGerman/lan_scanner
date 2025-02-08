@@ -1,4 +1,8 @@
-./web/__pycashe__/mainapp/__pycashe__
-./web/__pycashe__
+./windows/web/mainapp/__pycashe__/
+./linux/web/mainapp/__pycashe__/
+./windows/web/web/__pycashe__/
+./linux/web/web/__pycashe__/
+./windows/web/__pycashe__/
+./linux/web/__pycashe__/
 ./projectvenv
 ./.vs

@@ -1,0 +1,229 @@
+
+
+@media screen and (min-width: 1400px){
+    .tgbotex-container{
+        display: flex;
+        flex-direction: column;
+    
+        align-items: center;
+    
+        padding: 20px 0px 10px 0px;
+    
+    }
+    
+    .tgbotex{
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px gray;
+    
+        transition: transform .3s, box-shadow .5s;
+    
+        transition-delay: .1s;
+    }
+    
+    .tgbotex:hover{
+        transform: scale(1.3);
+        box-shadow: 0px 0px 30px gray;
+    }
+    
+    .desc-text{
+        line-height: 25px;
+    
+        a{
+            color: pink;
+        }
+    }
+    
+    .token-form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10vh;
+        border-radius: 20px;
+    
+        border-top: 3px solid white;
+        border-bottom: 3px solid purple;
+    
+        padding: 10px;
+    
+        box-sizing: border-box;
+    
+        justify-content: space-around;
+    
+    }
+    
+    #for-token{
+        width: 80%;
+        height: 4vh;
+    
+        border-radius: 20px;
+        padding: 10px;
+    
+        font-size: 20px;
+        font-weight: bold;
+    
+        text-shadow: 0px 0px 10px blue;
+    }
+    
+    #sent-token{
+        width: 18%;
+        height: 6.5vh;
+    
+        border-radius: 20px;
+    
+        font-size: 18px;
+    
+        transition: .2s;
+    }
+    #sent-token:hover{
+        background-color: blueviolet;
+        color: aliceblue;
+
+        box-shadow: -30px 0px 10px gray;
+    }
+
+    #sent-token:active{
+        box-shadow: 0px 0px 0px;
+
+        right: 100px;
+    }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1400px){
+    .tgbotex-container{
+        display: flex;
+        flex-direction: column;
+
+        padding: 20px;
+    }
+
+    .desc-text{
+        line-height: 20px;
+    }
+
+    .token-form{
+        display: flex;
+        flex-direction: column;
+
+        
+    }
+
+    #for-token{
+        text-align: center;
+        font-size: 18px;
+
+        border-radius: 25px;
+
+        padding: 10px;
+        margin: 0px 0px 10px 0px;
+
+    }
+
+    #sent-token{
+        padding: 10px;
+        font-size: 18px;
+
+        font-weight: 900;
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width: 699px){
+    h4{
+        text-align: center;
+    }
+    .container.description{
+        width: 90%;
+    }
+
+    .desc-text{
+        text-indent: 0px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .desc-text>ul{
+        width: 100%;
+        list-style-type: none;
+    }
+
+    .desc-text>ul>li{
+        margin: 10px auto;
+
+        a{
+            color: pink;
+        }
+    }
+
+    .tgbotex{
+        width: 100%;
+
+        margin: 10px auto;
+    }
+
+    .tgbotex-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        text-indent: 0px;
+    }
+
+    .token-form{
+        display: flex;
+        flex-direction: column;
+
+        margin: 10px auto;
+    }
+
+    #for-token{
+        max-height: 5vh;
+        max-width: 90%;
+
+        min-height: 5vh;
+        min-width: 90%;
+
+        border-radius: 20px;
+
+        margin: 0px auto;
+        border: 0px;
+        padding-left: 10px;
+        transition: .2s;
+    }
+
+    #for-token:focus{
+        text-align: left;
+        font-size: 20px;
+
+        box-shadow: 0px 0px 20px black;
+    }
+
+    #sent-token{
+        border-radius: 20px;
+        border: 0px;
+        width: 95%;
+        height: 5vh;
+
+        margin: 10px auto;
+
+        
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    
+    #for-token{
+        background-color: rgb(75, 75, 75);
+        color: aliceblue;
+    }
+
+    #sent-token{
+        background-color: rgb(80, 80, 80);
+        color: aliceblue;
+    }
+
+    #for-token:focus{
+        box-shadow: 0px 0px 20px white;
+    }
+}
