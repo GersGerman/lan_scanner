@@ -361,4 +361,8 @@ aside.left{
         background-color: rgb(41, 41, 41);
         color: white;
     }
+
+    a{
+        color: pink;
+    }
 }
