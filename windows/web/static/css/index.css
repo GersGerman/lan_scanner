@@ -57,15 +57,12 @@
     text-align: center;
 
     transition: .2s ease-out;
-}
-
-.help-box{
     background-size: 102%;
     background-repeat: no-repeat;
     background-position: 50%;
     text-shadow: 0px 0px 20px black;
-    
 }
+
 
 .faq{
     display: flex;
