@@ -388,4 +388,12 @@ aside.left {
     a {
         color: pink;
     }
+
+    .help-box.telegram {
+        color: black;
+
+        a {
+            color: purple;
+        }
+    }
 }
