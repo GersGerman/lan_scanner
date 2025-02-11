@@ -77,3 +77,54 @@
     }
 
 }
+
+@media  screen and (min-width: 700px) and (max-width: 1400px) {
+    .ip-list{
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+        
+        ul{
+            list-style: none;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+        }
+
+        li{
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            text-align: center;
+
+        }
+
+        .ip{
+            display: flex;
+            flex-direction: row;
+
+            box-sizing: border-box;
+            justify-content: space-between;
+            
+
+        }
+
+        .ip div{
+            padding: 2px 5px 2px 5px;
+        }
+    }
+
+}
+
+@media (prefers-color-scheme: light){
+    .plus-hr{
+        color: black;
+        background-color: black;
+    }
+}

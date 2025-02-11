@@ -1,8 +1,8 @@
-*{
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-body{
+body {
     background-color: white;
     display: flex;
 
@@ -10,18 +10,18 @@ body{
     align-items: center;
 }
 
-header{
+header {
     width: 100%;
 
     align-items: center;
     align-self: center;
 }
 
-main{
+main {
     min-width: 100%;
 }
 
-.desktop-header{
+.desktop-header {
     display: flex;
     flex-direction: row;
 
@@ -44,11 +44,12 @@ main{
     z-index: 0;
 }
 
-.mobile-header, .mini-mobile-header{
+.mobile-header,
+.mini-mobile-header {
     display: none;
 }
 
-.header-urls{
+.header-urls {
     display: flex;
 
     text-indent: 10px;
@@ -57,11 +58,11 @@ main{
     float: left;
 }
 
-aside.left{
+aside.left {
     display: none;
 }
 
-.header-urls a{
+.header-urls a {
     background-color: blueviolet;
 
     border-radius: 5px;
@@ -77,21 +78,21 @@ aside.left{
 
 }
 
-.header-urls a:hover{
+.header-urls a:hover {
     box-shadow: 10px 20px 5px black;
 
     color: black;
-    background-color:whitesmoke;
+    background-color: whitesmoke;
     transform: scale(1.1);
 }
 
-.wrapper{
+.wrapper {
     background-color: light;
     margin: 13vh 10px 0px 10px;
 
     padding: 20px;
     border-radius: 10px;
-    
+
     box-shadow: 0px -100px 1000px darkgray;
 
     display: flex;
@@ -102,8 +103,8 @@ aside.left{
 }
 
 
-@media screen  and (min-width:700px) and (max-width:1400px){
-    .mobile-header{
+@media screen and (min-width:700px) and (max-width:1400px) {
+    .mobile-header {
 
         position: fixed;
         width: 98%;
@@ -122,11 +123,12 @@ aside.left{
         transition: .2s;
     }
 
-    .wrapper{
+    .wrapper {
         margin: 12vh 10px 0px 10px;
     }
 
-    .burger hr, .burger-clicked hr{
+    .burger hr,
+    .burger-clicked hr {
         width: 30px;
         color: white;
         background-color: white;
@@ -140,37 +142,37 @@ aside.left{
         margin: 10px;
     }
 
-    .burger-clicked{
-         margin-top: 15px;
+    .burger-clicked {
+        margin-top: 15px;
 
 
-        hr{
+        hr {
             box-shadow: 0px 0px 20px white;
-            
+
         }
 
-        #for_hide{
+        #for_hide {
             display: none;
         }
 
-        #left{
+        #left {
             margin-right: -2px;
             margin-bottom: -4px;
             transform: rotate(45deg);
 
         }
 
-        #right{
+        #right {
             margin-top: -4px;
             transform: rotate(-45deg);
         }
     }
 
-    .desktop-header{
+    .desktop-header {
         display: none;
     }
 
-    .burger-menu{
+    .burger-menu {
         position: absolute;
 
         margin: 0px auto;
@@ -184,7 +186,7 @@ aside.left{
         background-size: 200%;
 
         align-self: center;
-        
+
 
         border-radius: 10px;
 
@@ -194,7 +196,7 @@ aside.left{
         transition: top .2s, box-shadow .3s, background-position .3s;
 
 
-        a{
+        a {
             text-decoration: none;
             color: white;
             background-color: purple;
@@ -207,31 +209,33 @@ aside.left{
 
             margin: 5px;
             transition: .1s
-        };
+        }
 
-        a:hover{
+        ;
+
+        a:hover {
             box-shadow: 10px 10px 0px black;
         }
     }
 
-    .burger-menu.hidden{
+    .burger-menu.hidden {
         top: -450px;
         box-shadow: 0px 0px 0px black;
-        
+
         background-position: 50%;
     }
 
 }
 
 @media screen and (max-width: 700px) {
-    .desktop-header{
+    .desktop-header {
         display: none;
     }
-    
-    .mini-mobile-header{
+
+    .mini-mobile-header {
         display: flex;
         flex-direction: row;
-        
+
         justify-content: space-around;
 
         align-items: center;
@@ -256,7 +260,7 @@ aside.left{
         transition: .2s;
     }
 
-    .wrapper{
+    .wrapper {
         margin: 12vh 1vw 5vh 1vh;
 
         border-radius: 10px 50px 10px 10px;
@@ -266,7 +270,7 @@ aside.left{
         transition: .1s;
     }
 
-    .burger-mobile{
+    .burger-mobile {
         display: flex;
         flex-direction: column;
 
@@ -278,7 +282,7 @@ aside.left{
 
     }
 
-    .burger-mobile-line{
+    .burger-mobile-line {
         background-color: white;
         color: white;
 
@@ -292,45 +296,49 @@ aside.left{
 
     }
 
-    .burger-mobile-clicked{
+    .burger-mobile-clicked {
         transform: rotate(180deg);
         position: absolute;
 
         right: 65px;
-        
-        .burger-mobile-line.top{
+
+        .burger-mobile-line.top {
             width: 15px;
             margin-left: 8px;
             transform: rotate(30deg);
-        };
+        }
+
+        ;
 
 
-        .burger-mobile-line.bottom{
+        .burger-mobile-line.bottom {
             width: 15px;
             margin-left: 8px;
             transform: rotate(-30deg);
-        };
+        }
+
+        ;
 
 
 
     }
 
-    .wrapper-menu-opened{
+    .wrapper-menu-opened {
         border-radius: 50px 10px 10px 10px;
     }
 
-    .header-opened{
+    .header-opened {
         border-radius: 0px 0px 10px 50px;
     }
-    
-    aside.left{
+
+    aside.left {
 
         top: 0px;
         left: 0px;
 
         padding: 50px;
 
-        background-image:  linear-gradient(45deg, blue, darkviolet, purple, blue);
+        background-image: linear-gradient(45deg, blue, darkviolet, purple, blue);
         height: 100vh;
 
         position: fixed;
@@ -341,14 +349,14 @@ aside.left{
         box-shadow: 50px 0px 100px grey;
         transition: .2s, border-radius .3s;
 
-        border-radius: 0  30px;
+        border-radius: 0 30px;
 
-        body{
+        body {
             position: fixed;
             overflow-y: scroll;
         }
 
-        a{
+        a {
             text-decoration: none;
             color: white;
             background-color: black;
@@ -358,10 +366,12 @@ aside.left{
 
             border-radius: 2px 2px 25px 2px;
 
-        };       
+        }
+
+        ;
     }
 
-    aside.left.mobile-hidden{
+    aside.left.mobile-hidden {
         left: -400px;
         border-radius: 0px;
     }
@@ -369,13 +379,13 @@ aside.left{
 }
 
 
-@media (prefers-color-scheme: dark){
-    body{
+@media (prefers-color-scheme: dark) {
+    body {
         background-color: rgb(41, 41, 41);
         color: white;
     }
 
-    a{
+    a {
         color: pink;
     }
 }
