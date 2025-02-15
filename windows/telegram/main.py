@@ -1,3 +1,4 @@
+from json import load
 import os
 import sys
 import asyncio
@@ -13,6 +14,41 @@ bot = Bot(token=sys.argv[1])
 
 dp = Dispatcher()
 
+def check(one, two):
+    _in = False
+
+    for i in two:
+        if one == i:
+            _in = True
+            return _in
+    
+    return _in
+
+def scan():
+    req = requests.get("http://127.0.0.1:8089/getdata/devices")
+    data = req.json()
+
+    devices = load(open(f"{os.getcwd()}\\telegram\\devices.json", 'r'))
+    
+    for i in data['new']:
+        if check(i, devices['new']):
+            devices['new'].append(i)
+    
+    for i in data['old']:
+        if i not in devices['old']:
+            devices['old'].append(i)
+
+    for i in devices['new']:
+        if i not in data['new']:
+            del devices[i]
+    
+    for i in devices['old']:
+        if i not in data['old']:
+            del devices[i]
+
+    return data
+
+data = scan()
 
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
@@ -47,9 +83,9 @@ async def cmd_help(message: types.Message):
 @dp.message(Command("constant"))
 async def cmd_constant(message: types.Message):
     buttons = []
-    for i in [['устройство 1', '192.168.1.1'], ['устройство 2', '192.168.1.2'], ['устройство 3', '192.168.1.3']]:
+    for i in data['old']:
         buttons.append([
-            types.InlineKeyboardButton(text='{} - {}'.format(i[0], i[1]), callback_data=f'delete_{i[1]}')
+            types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'delete_{i["ip"]}')
         ])
     
     await message.answer("Вот список постоянных устройств, нажмите на кнопку чтобы удалить его", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
@@ -58,9 +94,9 @@ async def cmd_constant(message: types.Message):
 @dp.message(Command("new_ip"))
 async def cmd_constant(message: types.Message):
     buttons = []
-    for i in [['устройство 4', '192.168.1.4'], ['устройство 5', '192.168.1.5'], ['устройство 6', '192.168.1.6']]:
+    for i in data['new']:
         buttons.append([
-            types.InlineKeyboardButton(text='{} - {}'.format(i[0], i[1]), callback_data=f'add_{i[1]}')
+            types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'add_{i["ip"]}')
         ])
     
     await message.answer("Вот список новых устройств, нажмите на кнопку чтобы запомнить и при дальнейшем их подключении сообщение не выводилось", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
@@ -70,17 +106,26 @@ async def callback_(callback: types.CallbackQuery):
     data = callback.data.split("_")
 
     if data[0] == 'delete':
+        url = 'http://127.0.0.1:8089/post/unresolve_ip'
+        Data = {"ip": data[1]}
+        responce = requests.post(url, Data)
+        print(responce)
         await callback.message.answer(f"Устройство {data[1]} было удалено, при повторном подключении вам придет уведомление")
 
     if data[0] == 'add':
+        url = 'http://127.0.0.1:8089/post/resolve_ip'
+        Data = {"ip": data[1]}
+        responce = requests.post(url, Data)
+        print(responce)
         await callback.message.answer(f"Устройство {data[1]} было добавлено, при повторном подключении уведомления вам приходить не будут")
 
 @dp.message(Command("scan"))
 async def scan_network(message: types.Message):
+        global data
         await message.reply("Дождитесь результата сканирования, это может занять некоторое время...")
-        req = requests.get("http://127.0.0.1:8089/getdata/devices")
-        data = req.json()
-        
+
+        data = scan()
+
         for device in data['new']:
             await message.answer(f"{device['ip']} - {device['mac']}\n\nНовый")
         
@@ -91,5 +136,4 @@ async def scan_network(message: types.Message):
 async def main():
     await dp.start_polling(bot)
 
-print("1")
 asyncio.run(main())
