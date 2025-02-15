@@ -10,13 +10,15 @@
 
 
 .remove-from-trusted{
-    transform: rotate(90deg);
+    transform: rotate(45deg);
 }
 
 #trusted-ip .ip{
     box-sizing: border-box;
     justify-content: space-between;
 }
+
+
 
 .plus-hr{
     width: 15px;    

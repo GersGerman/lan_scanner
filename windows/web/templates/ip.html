@@ -13,7 +13,6 @@
 <div class="ip-list">
     <h2 class="page-header">Постоянные устройства:</h2>
     <ul id="trusted-ip">
-
         <li id="1-t">
             <div class="ip">
                 <div class="ip-addr">127.0.0.1</div>
@@ -25,20 +24,7 @@
                     <div class="plus-hr second-hr"></div>
                 </div>
             </div>
-
         </li>
-        <li id="2-t">
-            <div class="ip">
-                <div class="ip-addr">127.0.0.1</div>
-                <div class="name-for-ip"><i>Имя </i></div>
-                <div class="date-added"><b>10.10.2010</b></div>
-                <div class="remove-from-trusted"  onclick="remove(2)">
-                    <div class="plus-hr first-hr"></div>
-                    <div class="plus-hr second-hr"></div>
-                </div>
-            </div>
-        </li>
-        
     </ul>
 </div>
 
@@ -49,7 +35,7 @@
 
         <li id="3-ut">
             <div class="ip">
-                <div class="ip-addr">127.0.0.4</div> 
+                <div class="ip-addr">192.168.1.1</div> 
                 <div class="name-for-ip"><i>Имя 4</i></div>
                 <div class="date-added"><b>10.10.2010</b></div>
 
@@ -59,20 +45,36 @@
                 </div>
         </li>
         
-        <li id="4-ut">
+    </ul>
+</div>
+<div class="templates" style="display: none;">
+    <div class="untrusted">
+        <li id="1-t">
             <div class="ip">
-                <div class="ip-addr">127.0.0.5</div> 
-                <div class="name-for-ip"><i>Имя 5</i></div>
-                <div class="date-added"><b>10.10.2010</b></div>
+                <div class="ip-addr"></div>
+                <div class="name-for-ip"><i></i></div>
+                <div class="date-added"><b></b></div>
 
-                <div class="add-to-trusted"  onclick="add(4)">
+                <div class="remove-from-trusted"  onclick="remove(1)">
+                    <div class="plus-hr first-hr"></div>
+                    <div class="plus-hr second-hr"></div>
+                </div>
+            </div>
+        </li>
+    </div>
+    <div class="trusted">
+        <li id="3-ut">
+            <div class="ip">
+                <div class="ip-addr"></div> 
+                <div class="name-for-ip"><i></i></div>
+                <div class="date-added"><b></b></div>
+
+                <div class="add-to-trusted"  onclick="add(3)">
                     <div class="plus-hr first-hr"></div>
                     <div class="plus-hr second-hr"></div>
                 </div>
         </li>
-        
-        
-    </ul>
+    </div>
 </div>
 {% endblock %}
 
@@ -90,6 +92,24 @@
 
             document.getElementById("trusted-ip").appendChild(block);
 
+            let data = {
+                ip: block.getElementsByClassName("ip-addr")[0].innerHTML
+            }
+            var csrftoken = '{{ csrf_token }}';
+
+            $.ajax({
+                url: '{% url "ajax-resolve-ip" %}',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFTOKEN': csrftoken
+                },
+                data: JSON.stringify(data),
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+
 
         }
         function remove(id){
@@ -104,6 +124,25 @@
 
             document.getElementById("new-ip").appendChild(block);
 
+            let data = {
+                ip: block.getElementsByClassName("ip-addr")[0].innerHTML
+            }
+            
+            var csrftoken = '{{ csrf_token }}';
+
+            $.ajax({
+                url: '{% url "ajax-unresolve-ip" %}',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFTOKEN': csrftoken
+                },
+                data: JSON.stringify(data),
+                success: function (response) {
+                    console.log(response);
+                }
+            });
+
         }
     </script>
     <script>
@@ -112,18 +151,17 @@
                 url: '{% url "ajax-ip" %}',
                 type: 'GET',
                 dataType: 'json',
-                success: function(response) {
+                success: function(response){
                     console.log(response)
-                    console.log(response['old'])
                     response['old'].forEach(element => {
                         console.log(element)
                     });
                 },
                 error: function(xhr, status, error) {
-                    console.log('ожидание ответа');
+                    console.log('.');
                 }
             });
-        }, 5000)
+        }, 10000)
     </script>
 
 {% endblock %}

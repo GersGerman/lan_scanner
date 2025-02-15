@@ -1,3 +1,4 @@
+import os
 import sys
 import asyncio
 from aiogram.filters.command import Command # type: ignore
@@ -5,18 +6,22 @@ from aiogram import Bot, Dispatcher, types, F # type: ignore
 from aiogram.enums.parse_mode import ParseMode # type: ignore
 
 
+import requests
+
+
 bot = Bot(token=sys.argv[1])
 
 dp = Dispatcher()
 
+
 @dp.message(Command("start"))
 async def cmd_start(message: types.Message):
-    data = open("users", 'r').read().split("\n")
+    data = open(f"{os.getcwd()}\\telegram\\users", 'r').read().split("\n")
     if str(message.from_user.id) not in data:
 
         await message.answer(f"Привет, {message.from_user.username}!")
         await message.answer("Теперь, при каждом новом подключении к сети тебе будет приходить уведомление об этом, ты сможешь так же как и на сайте добавить устройство в список постоянных или удалить оттуда")
-        await message.answer('Если что то не понятно пиши /help либо посомтри справку на сайте')
+        await message.answer('Если что то не понятно пиши /help либо посмотри справку на сайте')
 
 
         data.append(str(message.from_user.id))
@@ -60,12 +65,6 @@ async def cmd_constant(message: types.Message):
     
     await message.answer("Вот список новых устройств, нажмите на кнопку чтобы запомнить и при дальнейшем их подключении сообщение не выводилось", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
 
-@dp.message(Command("scan"))
-async def cmd_scan(message: types.Message):
-    await message.reply("Прямо сейчас в сети эти устройства:")
-    for i in [['устройство 1', '192.168.1.1', True], ['устройство 2', '192.168.1.2', True], ['устройство 3', '192.168.1.3', True],['устройство 4', '192.168.1.4', False], ['устройство 5', '192.168.1.5', False], ['устройство 6', '192.168.1.6', False]]:
-        await message.answer(f"{i[0]} - {i[1]}\n{"Добавлено" if i[2] else "Новое"}")
-
 @dp.callback_query()
 async def callback_(callback: types.CallbackQuery):
     data = callback.data.split("_")
@@ -76,10 +75,21 @@ async def callback_(callback: types.CallbackQuery):
     if data[0] == 'add':
         await callback.message.answer(f"Устройство {data[1]} было добавлено, при повторном подключении уведомления вам приходить не будут")
 
+@dp.message(Command("scan"))
+async def scan_network(message: types.Message):
+        await message.reply("Дождитесь результата сканирования, это может занять некоторое время...")
+        req = requests.get("http://127.0.0.1:8089/getdata/devices")
+        data = req.json()
+        
+        for device in data['new']:
+            await message.answer(f"{device['ip']} - {device['mac']}\n\nНовый")
+        
+        for device in data['old']:
+            await message.answer(f"{device['ip']} - {device['mac']}\n\nРазрешенный")
 
 
 async def main():
     await dp.start_polling(bot)
 
-
+print("1")
 asyncio.run(main())
