@@ -9,8 +9,9 @@ def main():
     print("Запуск серверов: Сканер сети и web сервер....")
 
     print(Fore.MAGENTA+os.getcwd()+"/\scripts/\server.exe")
-    subprocess.Popen(os.getcwd()+"\scripts\server.exe",)
+    # subprocess.Popen(os.getcwd()+"\scripts\server.exe",)
     subprocess.Popen(f"python {os.getcwd()}/\web/\manage.py runserver 0.0.0.0:8089")
+    subprocess.Popen(f"python {os.getcwd()}/\telegram/\main.py {open("base_dir").read()}")
     
     while True:
         try:

@@ -14,21 +14,28 @@
     <h2 class="page-header">Постоянные устройства:</h2>
     <ul id="trusted-ip">
 
-        <li>
+        <li id="1-t">
             <div class="ip">
-                <div class="ip-addr">127.0.0.1</div>  <div class="name-for-ip"><i>Имя 1</i></div><div class="date-added"><b>10.10.2010</b></div> 
+                <div class="ip-addr">127.0.0.1</div>
+                <div class="name-for-ip"><i>Имя 1</i></div>
+                <div class="date-added"><b>10.10.2010</b></div>
+
+                <div class="remove-from-trusted"  onclick="remove(1)">
+                    <div class="plus-hr first-hr"></div>
+                    <div class="plus-hr second-hr"></div>
+                </div>
             </div>
+
         </li>
-        
-        <li>
+        <li id="2-t">
             <div class="ip">
-                <div class="ip-addr">127.0.0.2</div>  <div class="name-for-ip"><i>Имя 2</i></div><div class="date-added"><b>10.10.2010</b></div>
-            </div>
-        </li>
-        
-        <li>
-            <div class="ip">
-                <div class="ip-addr">127.0.0.3</div>  <div class="name-for-ip"><i>Имя 3</i></div><div class="date-added"><b>10.10.2010</b></div>
+                <div class="ip-addr">127.0.0.1</div>
+                <div class="name-for-ip"><i>Имя </i></div>
+                <div class="date-added"><b>10.10.2010</b></div>
+                <div class="remove-from-trusted"  onclick="remove(2)">
+                    <div class="plus-hr first-hr"></div>
+                    <div class="plus-hr second-hr"></div>
+                </div>
             </div>
         </li>
         
@@ -40,34 +47,83 @@
 
     <ul id="new-ip">
 
-        <li>
+        <li id="3-ut">
             <div class="ip">
                 <div class="ip-addr">127.0.0.4</div> 
                 <div class="name-for-ip"><i>Имя 4</i></div>
                 <div class="date-added"><b>10.10.2010</b></div>
 
-                <div class="add-to-trusted">
+                <div class="add-to-trusted"  onclick="add(3)">
                     <div class="plus-hr first-hr"></div>
                     <div class="plus-hr second-hr"></div>
                 </div>
         </li>
         
-        <li>
+        <li id="4-ut">
             <div class="ip">
-                <div class="ip-addr">127.0.0.5</div>
-                <div class="name-for-ip"><i>Имя 5</i></div><div class="date-added"><b>10.10.2010</b></div> <div class="add-to-trusted" onclick="fuu1()"><div class="plus-hr first-hr"></div><div class="plus-hr second-hr"></div></div>
-            </div>
+                <div class="ip-addr">127.0.0.5</div> 
+                <div class="name-for-ip"><i>Имя 5</i></div>
+                <div class="date-added"><b>10.10.2010</b></div>
+
+                <div class="add-to-trusted"  onclick="add(4)">
+                    <div class="plus-hr first-hr"></div>
+                    <div class="plus-hr second-hr"></div>
+                </div>
         </li>
         
-        <li>
-            <div class="ip">
-                <div class="ip-addr">127.0.0.6</div>  <div class="name-for-ip"><i>Имя 6</i></div><div class="date-added"><b>10.10.2010</b></div> <div class="add-to-trusted"><div class="plus-hr first-hr"></div><div class="plus-hr second-hr"></div></div>
-            </div>
-        </li>
         
     </ul>
 </div>
 {% endblock %}
 
 {% block scripts %}
+    <script>
+        function add(id){
+            let block = document.getElementById(`${id}-ut`);
+            let newId = document.getElementById("trusted-ip").childElementCount + 1;
+            block.id = `${newId}-t`;
+            
+            let plus = block.getElementsByClassName("add-to-trusted")[0];
+            plus.removeAttribute("onclick")
+            plus.setAttribute("oncilck", `remove(${newId})`)
+            plus.classList.replace("add-to-trusted", "remove-from-trusted")
+
+            document.getElementById("trusted-ip").appendChild(block);
+
+
+        }
+        function remove(id){
+            let block = document.getElementById(`${id}-t`);
+            let newId = document.getElementById("new-ip").childElementCount + 1;
+            block.id = `${newId}-ut`;
+            
+            let plus = block.getElementsByClassName("remove-from-trusted")[0];
+            plus.removeAttribute("onclick")
+            plus.setAttribute("oncilck", `add(${newId})`)
+            plus.classList.replace("remove-from-trusted", "add-to-trusted")
+
+            document.getElementById("new-ip").appendChild(block);
+
+        }
+    </script>
+    <script>
+        setInterval(()=>{
+            $.ajax({
+                url: '{% url "ajax-ip" %}',
+                type: 'GET',
+                dataType: 'json',
+                success: function(response) {
+                    console.log(response)
+                    console.log(response['old'])
+                    response['old'].forEach(element => {
+                        console.log(element)
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.log('ожидание ответа');
+                }
+            });
+        }, 5000)
+    </script>
+
 {% endblock %}

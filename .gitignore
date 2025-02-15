@@ -4,5 +4,7 @@
 ./linux/web/web/__pycashe__/
 ./windows/web/__pycashe__/
 ./linux/web/__pycashe__/
+./windows/venv
+./linux/venv
 ./projectvenv
 ./.vs
