@@ -26,7 +26,10 @@ def check(one, two):
 
 def scan():
     req = requests.get("http://127.0.0.1:8089/getdata/devices")
-    data = req.json()
+    try:
+        data = req.json()
+    except Exception:
+        pass
 
     devices = load(open(f"{os.getcwd()}\\telegram\\devices.json", 'r'))
     
@@ -35,15 +38,15 @@ def scan():
             devices['new'].append(i)
     
     for i in data['old']:
-        if i not in devices['old']:
+        if check(i, devices['old']):
             devices['old'].append(i)
 
     for i in devices['new']:
-        if i not in data['new']:
+        if check(i, data['new']):
             del devices[i]
     
     for i in devices['old']:
-        if i not in data['old']:
+        if check(i, data['old']):
             del devices[i]
 
     return data
@@ -68,7 +71,7 @@ async def cmd_start(message: types.Message):
             Data = ""
             for i in data:
                 Data = Data + i + "\n"
-            print(Data)
+            
             file.write(Data)
             file.close()
     
@@ -83,23 +86,30 @@ async def cmd_help(message: types.Message):
 @dp.message(Command("constant"))
 async def cmd_constant(message: types.Message):
     buttons = []
-    for i in data['old']:
-        buttons.append([
-            types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'delete_{i["ip"]}')
-        ])
+    if len(data['old']):
+        for i in data['old']:
+            buttons.append([
+                types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'delete_{i["ip"]}')
+            ])
+        await message.answer("Вот список постоянных устройств, нажмите на кнопку чтобы удалить его", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
+    else:
+        await message.answer("Тут пока пусто.\nПомощь - /help")
     
-    await message.answer("Вот список постоянных устройств, нажмите на кнопку чтобы удалить его", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
 
 
 @dp.message(Command("new_ip"))
 async def cmd_constant(message: types.Message):
     buttons = []
-    for i in data['new']:
-        buttons.append([
-            types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'add_{i["ip"]}')
-        ])
-    
-    await message.answer("Вот список новых устройств, нажмите на кнопку чтобы запомнить и при дальнейшем их подключении сообщение не выводилось", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
+    if len(data['new']):
+        for i in data['new']:
+            buttons.append([
+                types.InlineKeyboardButton(text='{} - {}'.format(i['ip'], i['mac']), callback_data=f'add_{i["ip"]}')
+            ])
+        
+        await message.answer("Вот список новых устройств, нажмите на кнопку чтобы запомнить и при дальнейшем их подключении сообщение не выводилось", reply_markup=types.InlineKeyboardMarkup(inline_keyboard=buttons))
+    else:
+        await message.answer("Тут пока пусто.\nПомощь - /help")
+
 
 @dp.callback_query()
 async def callback_(callback: types.CallbackQuery):
@@ -109,14 +119,14 @@ async def callback_(callback: types.CallbackQuery):
         url = 'http://127.0.0.1:8089/post/unresolve_ip'
         Data = {"ip": data[1]}
         responce = requests.post(url, Data)
-        print(responce)
+        
         await callback.message.answer(f"Устройство {data[1]} было удалено, при повторном подключении вам придет уведомление")
 
     if data[0] == 'add':
         url = 'http://127.0.0.1:8089/post/resolve_ip'
         Data = {"ip": data[1]}
         responce = requests.post(url, Data)
-        print(responce)
+        
         await callback.message.answer(f"Устройство {data[1]} было добавлено, при повторном подключении уведомления вам приходить не будут")
 
 @dp.message(Command("scan"))

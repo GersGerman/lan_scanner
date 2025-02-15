@@ -27,16 +27,23 @@ def get_ips(request):
             i = i+ "}"
         
         i = i.replace("'", '"')
-        if json.loads(i) in devices['old']:
+        if json.loads(i) in devices['old'] and json.loads(i) not in Data['old']:
             Data["old"].append(json.loads(i))
         else:
-            Data["new"].append(json.loads(i))
-            if json.loads(i) not in devices['new']:
+
+            if json.loads(i) not in devices['new'] and json.loads(i) not in Data['new']:
                 devices['new'].append(json.loads(i))
-            
-
-
-    return JsonResponse(Data, content_type='application/json')
+                Data["new"].append(json.loads(i))
+    
+    for ip in devices['new']:
+        while devices['new'].count(ip) > 1:
+            devices['new'].remove(ip)
+    
+    for ip in devices['old']:
+        while devices['old'].count(ip) > 1:
+            devices['old'].remove(ip)
+    
+    return JsonResponse(devices, content_type='application/json')
 
 def resolve_ip(request):
     if request.method == 'POST':
@@ -68,20 +75,39 @@ def unresolve_ip(request):
             return HttpResponseBadRequest()
 
 def give_devices(request):
+    
+    if devices['new'] == [] and devices['old'] == []:
+        get_ips(request)
     return HttpResponse(json.dumps(devices))
 
 def telegrambot(request):
-    return render(request, 'telegram.html')
+    
+    if open(f"{os.getcwd()}\\base_dir", 'r').read() != "":
+        context = {"created": True}
+    
+    else:
+        context = {"created": False}
+
+    return render(request, 'telegram.html', context=context)
 
 def listip(request):
     return render(request, 'ip.html')
 
-def create_tgbot(request):
+def botstart(request):
     if request.method == 'POST':
         data = json.loads(request.body)
-        open(f"{os.getcwd()}\\base_dir").write(data['token'])
+        open(f"{os.getcwd()}\\base_dir", 'r').write(data['token'])
 
         return HttpResponse("ok")
+
+    else:
+        return HttpResponseBadRequest()
+    
+
+def botstop(request):
+    if request.method == 'POST':
+        open(f"{os.getcwd()}\\base_dir", 'w').write("")
+
 
     else:
         return HttpResponseBadRequest()

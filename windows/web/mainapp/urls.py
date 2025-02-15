@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import (index, resolve_ip, telegrambot, listip, get_ips, unresolve_ip, give_devices)
+from .views import (index, resolve_ip, telegrambot, listip, get_ips, unresolve_ip, give_devices, botstart, botstop)
 
 urlpatterns = [
     path("", name="index-page", view=index),
@@ -11,5 +11,8 @@ urlpatterns = [
     path("post/resolve_ip", name='ajax-resolve-ip', view=resolve_ip),
     path("post/unresolve_ip", name='ajax-unresolve-ip', view=unresolve_ip),
 
-    path("getdata/devices", view=give_devices)
+    path("getdata/devices", view=give_devices),
+
+    path("bot/stop", name="botstop" ,view=botstop),
+    path("bot/start", name="botstart" ,view=botstart)
 ]

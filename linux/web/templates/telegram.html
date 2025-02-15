@@ -15,6 +15,7 @@
     </h2>
 
     <!-- Если еще не создан -->
+    {% if not created %}
     <div class="container description">
         <h4>Что это такое?</h4>
         <div class="desc-text">
@@ -48,16 +49,90 @@
         <div class="token-form">
             <input type="text" placeholder="Тут введите токен" id="for-token">
 
-            <button id="sent-token">Подтвердить</button>
+            <button id="sent-token" onclick="add_bot()">Подтвердить</button>
         </div>
         
 
     </div>
-
+    {% else %}
     <!--  Если создан -->
     <div class="container if-created">
-        
+        <div class="control-box">
+            <h2 id="activated">Запущен</h2>
+
+            <button id="stop-btn" onclick="stopBot()">Остановить</button>
+
+        </div>
+
+
+        <div class="help">
+            <h3><i>Помощь</i></h3>
+            <div class="container help-box">
+                <h4>Команды:</h4>
+                <ul>
+                    <li>
+                        <h4>/help</h4>
+                        <i>Выводит небольшую справку с командами</i>
+                    </li>
+                    <li>
+                        <h4>/scan</h5>
+                        <i>Получить свежий результат сканирования</i>
+                    </li>
+                    <li>
+                        <h4>/constant</h4>
+                        <i>Получить ip адреса устройств, которые вы добавили в список с возможностью удаления</i>
+                    </li>
+                    <li>
+                        <h4>/new_ip</h4>
+                        <i>Получить список ip адресов устройств, которых нету в списке но они подключены к сети с возможностью добавить</i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
     </div>
 
+    {% endif %}
+
+{% endblock %}
+
+{% block scripts %}
+    <script>
+        function stopBot(){
+            var csrftoken = '{{ csrf_token }}';
+            $.ajax({
+                url: '{% url "botstop" %}',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFTOKEN': csrftoken
+                },
+                success: function (response) {
+                    console.log(response);
+                    window.location.reload()
+                }
+            });
+        }
+
+        function add_bot(){
+            let data = {
+                "token": document.getElementById("for-token").value
+            }
+            var csrftoken = '{{ csrf_token }}';
+            $.ajax({
+                url: '{% url "botstart" %}',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFTOKEN': csrftoken
+                },
+                data: JSON.stringify(data),
+                success: function (response) {
+                    console.log(response);
+                    window.location.reload()
+                }
+            });
+        }
+    </script>
 {% endblock %}
 

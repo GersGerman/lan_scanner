@@ -7,9 +7,9 @@ def main():
     import subprocess
 
     print("Запуск серверов: Сканер сети и web сервер....")
-    subprocess.Popen(f"python {os.getcwd()}\\telegram\\main.py {open('base_dir').read()}") 
+    if open('base_dir').read() != "":
+        subprocess.Popen(f"{os.getcwd()}\\telegram\\telegrambot.exe {open('base_dir').read()}") 
 
-    print(Fore.MAGENTA+os.getcwd()+"\\scripts\\server.exe")
     subprocess.Popen(os.getcwd()+"\\scripts\\server.exe",)
     subprocess.Popen(f"python {os.getcwd()}\\web\\manage.py runserver --insecure 0.0.0.0:8089")
 
@@ -20,6 +20,7 @@ def main():
         
         except KeyboardInterrupt:
             subprocess.Popen("taskkill /f /im server.exe")
+            subprocess.Popen("taskkill /f /im telegrambot.exe")
             break
         else:
             pass
